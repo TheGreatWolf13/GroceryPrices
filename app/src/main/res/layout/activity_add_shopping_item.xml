@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityAddShoppingItem">
+
+    <TextView
+        android:id="@+id/tvBest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/red"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/txtName"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <Spinner
+        android:id="@+id/spnUnit"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/txtQuantity"
+        app:layout_constraintStart_toStartOf="@+id/txtQuantity"
+        app:layout_constraintTop_toBottomOf="@+id/txtQuantity" />
+
+    <TextView
+        android:id="@+id/tvUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unidade"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spnUnit"
+        app:layout_constraintEnd_toEndOf="@+id/tvUnit3"
+        app:layout_constraintTop_toTopOf="@+id/spnUnit"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvUnit3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Preço"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtPrice"
+        app:layout_constraintEnd_toEndOf="@+id/tvObs"
+        app:layout_constraintTop_toTopOf="@+id/txtPrice"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Adicionar Item"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtName"
+        app:layout_constraintEnd_toEndOf="@+id/tvName4"
+        app:layout_constraintTop_toTopOf="@+id/txtName"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvName4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantia"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtAmount"
+        app:layout_constraintEnd_toEndOf="@+id/tvName5"
+        app:layout_constraintTop_toTopOf="@+id/txtAmount"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvName5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantidade"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtQuantity"
+        app:layout_constraintEnd_toEndOf="@+id/tvUnit"
+        app:layout_constraintTop_toTopOf="@+id/txtQuantity"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvObs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Observação"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtObs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtObs"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/txtName"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:hint="Item"
+        android:inputType="text|textCapSentences|textNoSuggestions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvName"
+        app:layout_constraintTop_toBottomOf="@+id/tvBest"
+        tools:ignore="Autofill,HardcodedText" />
+
+    <EditText
+        android:id="@+id/txtObs"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:hint="..."
+        android:inputType="text|textCapSentences|textNoSuggestions"
+        app:layout_constraintEnd_toEndOf="@+id/txtPrice"
+        app:layout_constraintStart_toStartOf="@+id/txtPrice"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrice"
+        tools:ignore="Autofill,HardcodedText" />
+
+    <tgw.groceryprices.android.IntegerEditText
+        android:id="@+id/txtAmount"
+        style="@style/txt_default"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="0"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/txtName"
+        app:layout_constraintStart_toStartOf="@+id/txtName"
+        app:layout_constraintTop_toBottomOf="@+id/txtName"
+        tools:ignore="Autofill,DuplicateSpeakableTextCheck" />
+
+    <tgw.groceryprices.android.DecimalEditText
+        android:id="@+id/txtQuantity"
+        style="@style/txt_default"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:hint="0,00"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/txtAmount"
+        app:layout_constraintStart_toStartOf="@+id/txtAmount"
+        app:layout_constraintTop_toBottomOf="@+id/txtAmount" />
+
+    <tgw.groceryprices.android.CurrencyEditText
+        android:id="@+id/txtPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="R$ 0,00"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/spnUnit"
+        app:layout_constraintStart_toStartOf="@+id/spnUnit"
+        app:layout_constraintTop_toBottomOf="@+id/spnUnit"
+        tools:ignore="Autofill" />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="8dp"
+        android:enabled="false"
+        android:text="Adicionar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtObs" />
+</androidx.constraintlayout.widget.ConstraintLayout>

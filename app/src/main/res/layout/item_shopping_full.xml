@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="181dp">
+
+    <tgw.groceryprices.android.MarqueeTextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:text="Name"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ckbDone"
+        app:layout_constraintEnd_toStartOf="@+id/ckbDone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ckbDone"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvQtd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="XXX"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvUnit"
+        app:layout_constraintStart_toEndOf="@+id/tvX"
+        app:layout_constraintTop_toTopOf="@+id/tvUnit" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="XXX"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/tvLessThan"
+        app:layout_constraintTop_toBottomOf="@+id/tvAmount" />
+
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="XXX"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvX"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvX" />
+
+    <CheckBox
+        android:id="@+id/ckbDone"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:buttonTint="@color/white"
+        android:scaleX="2.6"
+        android:scaleY="2.6"
+        android:transformPivotX="11dp"
+        android:transformPivotY="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="unit"
+        android:textColor="@color/lightGrey"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnView"
+        app:layout_constraintStart_toEndOf="@+id/tvQtd"
+        app:layout_constraintTop_toTopOf="@+id/btnView" />
+
+    <TextView
+        android:id="@+id/tvLessThan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="≤"
+        android:textColor="@color/lightGrey"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPrice"
+        app:layout_constraintStart_toStartOf="@+id/tvAmount"
+        app:layout_constraintTop_toTopOf="@+id/tvPrice" />
+
+    <TextView
+        android:id="@+id/tvX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="x"
+        android:textColor="@color/lightGrey"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvQtd"
+        app:layout_constraintStart_toEndOf="@+id/tvAmount"
+        app:layout_constraintTop_toTopOf="@+id/tvQtd" />
+
+    <ImageButton
+        android:id="@+id/btnView"
+        style="@style/button_default"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/ckbDone"
+        app:layout_constraintStart_toStartOf="@+id/ckbDone"
+        app:layout_constraintTop_toBottomOf="@+id/ckbDone"
+        app:srcCompat="@android:drawable/ic_menu_delete"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    <tgw.groceryprices.android.MarqueeTextView
+        android:id="@+id/tvObs"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis justo nec porta lobortis. Suspendisse varius blandit erat, nec tempor ipsum consectetur sed. Praesent in leo non erat rhoncus fermentum."
+        android:textColor="@color/lightGrey"
+        android:textIsSelectable="false"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrice"
+        tools:ignore="TextContrastCheck,TextSizeCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>
