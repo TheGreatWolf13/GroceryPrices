@@ -1,4 +1,3 @@
 <resources>
-    <string name="app_name">GroceryPrices</string>
-    <string name="title_activity_add_market">ActivityAddMarket</string>
+    <string name="app_name">Preços de Produtos</string>
 </resources>

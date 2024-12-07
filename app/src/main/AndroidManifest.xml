@@ -42,7 +42,6 @@
         <activity
             android:name=".ActivityAddMarket"
             android:exported="false"
-            android:label="@string/title_activity_add_market"
             android:theme="@style/Theme.GroceryPrices" />
         <activity
             android:name=".MainActivity"
