@@ -65,7 +65,7 @@ public class ActivityRecords extends GenericActivity {
             ProductType product = MainActivity.PRODUCT_LIST.get(position);
             holder.tvName.setText(product.name());
             holder.btn.setOnClickListener(v -> {
-                MainActivity.selectedId = product.id;
+                MainActivity.selectedProductId = product.id;
                 ActivityRecords.this.setScreen(ActivitySeeRecord.class);
             });
         }

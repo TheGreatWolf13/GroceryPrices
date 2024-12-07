@@ -27,7 +27,7 @@ import tgw.groceryprices.utils.Utils;
 
 public class ActivitySeeRecord extends GenericActivity {
 
-    private RecordList list;
+    private ProductType product;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class ActivitySeeRecord extends GenericActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        int id = MainActivity.selectedId;
+        int id = MainActivity.selectedProductId;
         if (id == 0) {
             this.finish();
             return;
@@ -50,19 +50,6 @@ public class ActivitySeeRecord extends GenericActivity {
             return;
         }
         this.<TextView>findViewById(R.id.tvTitle).setText(product.name);
-        Record_ bestRecord = product.recordList.getBest();
-        if (bestRecord == null) {
-            this.<TextView>findViewById(R.id.tvBestPrice).setText("");
-            this.<TextView>findViewById(R.id.tvDate).setText("");
-            this.<TextView>findViewById(R.id.tvMarket).setText("");
-            this.<TextView>findViewById(R.id.tvPrice).setText("Sem registros");
-        }
-        else {
-            this.<TextView>findViewById(R.id.tvBestPrice).setText("Preço");
-            this.<TextView>findViewById(R.id.tvDate).setText(Utils.getDate(bestRecord.bestObservation.date));
-            this.<TextView>findViewById(R.id.tvMarket).setText(bestRecord.market.name);
-            this.<TextView>findViewById(R.id.tvPrice).setText(Utils.FORMAT_CURRENCY_PRECISE.format(bestRecord.bestObservation.pricePerUnit / 100) + " / " + product.unit.name);
-        }
         this.findViewById(R.id.btnAdd).setOnClickListener(v -> {
             MainActivity.MARKET_LIST.resetDisplay();
             if (MainActivity.MARKET_LIST.size() == 0) {
@@ -87,7 +74,7 @@ public class ActivitySeeRecord extends GenericActivity {
                 product.recordList.updateSearch(s.subSequence(0, s.length()).toString().trim());
             }
         });
-        this.list = product.recordList;
+        this.product = product;
     }
 
     @Override
@@ -95,8 +82,19 @@ public class ActivitySeeRecord extends GenericActivity {
         EditText txtSearch = this.findViewById(R.id.txtSearch);
         txtSearch.setText("");
         txtSearch.clearFocus();
-        if (this.list != null) {
-            this.list.resetDisplay();
+        this.product.recordList.resetDisplay();
+        Record_ bestRecord = this.product.recordList.getBest();
+        if (bestRecord == null) {
+            this.<TextView>findViewById(R.id.tvBestPrice).setText("");
+            this.<TextView>findViewById(R.id.tvDate).setText("");
+            this.<TextView>findViewById(R.id.tvMarket).setText("");
+            this.<TextView>findViewById(R.id.tvPrice).setText("Sem registros");
+        }
+        else {
+            this.<TextView>findViewById(R.id.tvBestPrice).setText("Preço");
+            this.<TextView>findViewById(R.id.tvDate).setText(Utils.getDate(bestRecord.bestObservation.date));
+            this.<TextView>findViewById(R.id.tvMarket).setText(bestRecord.market.name);
+            this.<TextView>findViewById(R.id.tvPrice).setText(Utils.FORMAT_CURRENCY_PRECISE.format(bestRecord.bestObservation.pricePerUnit) + " / " + this.product.unit.name);
         }
         super.onResume();
     }
@@ -119,7 +117,8 @@ public class ActivitySeeRecord extends GenericActivity {
             Record_ record_ = this.list.get(position);
             holder.tvName.setText(record_.name());
             holder.btn.setOnClickListener(v -> {
-
+                MainActivity.selectedMarketId = record_.id();
+                ActivitySeeRecord.this.setScreen(ActivitySeeObservation.class);
             });
         }
 

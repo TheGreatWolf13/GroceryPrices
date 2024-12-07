@@ -27,6 +27,7 @@ import tgw.groceryprices.utils.Validator;
 
 public class ActivityAddRecord extends GenericActivity {
 
+    private Button btnAdd;
     private Market market;
     private ProductType product;
     private TextView tvBest;
@@ -35,7 +36,16 @@ public class ActivityAddRecord extends GenericActivity {
     private CurrencyEditText txtPrice;
     private DecimalEditText txtQuantity;
 
-    private static Validator checkValidItem(Spinner market) {
+    private static Validator checkValidItem(IntegerEditText amount, DecimalEditText quantity, CurrencyEditText price) {
+        if (amount.getCleanIntValue() == 0) {
+            return Validator.INVALID_AMOUNT;
+        }
+        if (quantity.getCleanIntValue() == 0) {
+            return Validator.INVALID_QUANTITY;
+        }
+        if (price.getCleanIntValue() == 0) {
+            return Validator.INVALID_PRICE;
+        }
         return Validator.OK;
     }
 
@@ -49,7 +59,7 @@ public class ActivityAddRecord extends GenericActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        ProductType product = MainActivity.PRODUCT_LIST.getById(MainActivity.selectedId);
+        ProductType product = MainActivity.PRODUCT_LIST.getById(MainActivity.selectedProductId);
         if (product == null) {
             this.finish();
             return;
@@ -97,27 +107,43 @@ public class ActivityAddRecord extends GenericActivity {
                 ActivityAddRecord.this.updateEstimate();
             }
         });
-        Button btnAdd = this.findViewById(R.id.btnAdd);
-        btnAdd.setOnClickListener(v -> {
-            //Add
+        this.btnAdd = this.findViewById(R.id.btnAdd);
+        this.btnAdd.setOnClickListener(v -> {
+            product.recordList.addObservation(this.market, this.txtAmount, this.txtQuantity, this.txtPrice);
+            MainActivity.PRODUCT_LIST.save(this);
             this.finish();
         });
     }
 
     private void updateEstimate() {
         double pricePerUnit = (double) this.txtPrice.getCleanIntValue() / this.txtAmount.getCleanIntValue() / this.txtQuantity.getCleanIntValue();
+        if (Double.isNaN(pricePerUnit)) {
+            pricePerUnit = Double.POSITIVE_INFINITY;
+        }
         this.tvBestPrice.setText(Utils.FORMAT_CURRENCY_PRECISE.format(pricePerUnit) + " / " + this.product.unit.name);
         RecordList list = this.product.recordList;
         Record_ best = list.getBest();
         if (best == null || pricePerUnit < best.bestObservation.pricePerUnit) {
             this.tvBest.setText("Novo melhor global!");
-            return;
         }
-        Record_ record = list.getById(this.market.id);
-        if (record == null || pricePerUnit < record.bestObservation.pricePerUnit) {
-            this.tvBest.setText("Novo melhor no mercado!");
-            return;
+        else {
+            Record_ record = list.getById(this.market.id);
+            if (record == null || pricePerUnit < record.bestObservation.pricePerUnit) {
+                this.tvBest.setText("Novo melhor no mercado!");
+            }
+            else {
+                this.tvBest.setText("");
+            }
         }
-        this.tvBest.setText("");
+        Validator validator = checkValidItem(this.txtAmount, this.txtQuantity, this.txtPrice);
+        if (!validator.valid) {
+            this.btnAdd.setEnabled(false);
+            this.tvBest.setText(validator.error);
+            this.tvBest.setTextColor(this.getResources().getColor(R.color.red));
+        }
+        else {
+            this.btnAdd.setEnabled(true);
+            this.tvBest.setTextColor(this.getResources().getColor(R.color.lightGreen));
+        }
     }
 }

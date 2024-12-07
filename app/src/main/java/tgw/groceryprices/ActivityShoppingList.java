@@ -87,9 +87,9 @@ public class ActivityShoppingList extends GenericActivity {
             this.switcher.addView(fullView);
             this.fullName = fullView.findViewById(R.id.tvName);
             this.fullCheckbox = fullView.findViewById(R.id.ckbDone);
-            this.fullAmount = fullView.findViewById(R.id.tvAmount);
+            this.fullAmount = fullView.findViewById(R.id.tvAmountBest);
             this.fullQuantity = fullView.findViewById(R.id.tvQtd);
-            this.fullUnit = fullView.findViewById(R.id.tvUnit);
+            this.fullUnit = fullView.findViewById(R.id.tvUnitBest);
             this.fullPrice = fullView.findViewById(R.id.tvPrice);
             this.fullDelete = fullView.findViewById(R.id.btnView);
             this.fullObs = fullView.findViewById(R.id.tvObs);

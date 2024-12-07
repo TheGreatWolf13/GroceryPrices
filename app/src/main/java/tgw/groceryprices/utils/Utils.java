@@ -5,6 +5,7 @@ import android.widget.EditText;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.Calendar;
 import java.util.regex.Pattern;
 
 public final class Utils {
@@ -34,6 +35,14 @@ public final class Utils {
 
     private Utils() {
 
+    }
+
+    public static int getCurrentDate() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        return day + month * 100 + year * 10_000;
     }
 
     public static String getDate(int date) {

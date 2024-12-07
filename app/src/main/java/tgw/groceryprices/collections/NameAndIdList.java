@@ -149,7 +149,7 @@ public abstract class NameAndIdList<T extends NameAndIdList.Item> {
         if (index == -1) {
             return null;
         }
-        return this.get(index);
+        return this.listById.get(index);
     }
 
     @Nullable
@@ -158,7 +158,7 @@ public abstract class NameAndIdList<T extends NameAndIdList.Item> {
         if (index == -1) {
             return null;
         }
-        return this.get(index);
+        return this.listByName.get(index);
     }
 
     public void load(GenericActivity activity) {
@@ -168,7 +168,7 @@ public abstract class NameAndIdList<T extends NameAndIdList.Item> {
             try (FileInputStream stream = new FileInputStream(markets)) {
                 this.load(stream);
             }
-            catch (IOException e) {
+            catch (Exception e) {
                 //noinspection CallToPrintStackTrace
                 e.printStackTrace();
             }
@@ -199,6 +199,9 @@ public abstract class NameAndIdList<T extends NameAndIdList.Item> {
     protected abstract T loadItem(FileInputStream stream) throws IOException;
 
     public void remove(int id) {
+        if (this.listById.isEmpty()) {
+            return;
+        }
         T t = this.listById.remove(this.searchById(0, this.listById.size(), id));
         this.listByName.remove(this.searchByName(0, this.listByName.size(), t.name()));
         this.resetDisplay();

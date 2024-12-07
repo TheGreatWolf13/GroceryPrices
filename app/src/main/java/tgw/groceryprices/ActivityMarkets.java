@@ -76,6 +76,8 @@ public class ActivityMarkets extends GenericActivity {
             holder.btn.setOnClickListener(v -> new AlertDialog.Builder(new ContextThemeWrapper(ActivityMarkets.this, R.style.dlg_default))
                     .setMessage("Quer realmente apagar o mercado \"" + market.name() + "\" e todos os registros associados?")
                     .setPositiveButton("Apagar", (di, w) -> {
+                        MainActivity.PRODUCT_LIST.removeRecords(market);
+                        MainActivity.PRODUCT_LIST.save(ActivityMarkets.this);
                         MainActivity.MARKET_LIST.remove(market.id());
                         MainActivity.MARKET_LIST.save(ActivityMarkets.this);
                     })

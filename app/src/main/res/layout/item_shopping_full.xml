@@ -31,9 +31,9 @@
         android:text="XXX"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvUnit"
+        app:layout_constraintBottom_toBottomOf="@+id/tvUnitBest"
         app:layout_constraintStart_toEndOf="@+id/tvX"
-        app:layout_constraintTop_toTopOf="@+id/tvUnit" />
+        app:layout_constraintTop_toTopOf="@+id/tvUnitBest" />
 
     <TextView
         android:id="@+id/tvPrice"
@@ -45,10 +45,10 @@
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/tvLessThan"
-        app:layout_constraintTop_toBottomOf="@+id/tvAmount" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAmountBest" />
 
     <TextView
-        android:id="@+id/tvAmount"
+        android:id="@+id/tvAmountBest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -74,7 +74,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvUnit"
+        android:id="@+id/tvUnitBest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -93,7 +93,7 @@
         android:textColor="@color/lightGrey"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/tvPrice"
-        app:layout_constraintStart_toStartOf="@+id/tvAmount"
+        app:layout_constraintStart_toStartOf="@+id/tvAmountBest"
         app:layout_constraintTop_toTopOf="@+id/tvPrice" />
 
     <TextView
@@ -105,7 +105,7 @@
         android:textColor="@color/lightGrey"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/tvQtd"
-        app:layout_constraintStart_toEndOf="@+id/tvAmount"
+        app:layout_constraintStart_toEndOf="@+id/tvAmountBest"
         app:layout_constraintTop_toTopOf="@+id/tvQtd" />
 
     <ImageButton

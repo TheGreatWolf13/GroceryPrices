@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivitySeeObservation">
+
+    <TextView
+        android:id="@+id/tvAmountBest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="right|center_vertical"
+        android:text="XXX"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvXBest"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDelBest" />
+
+    <TextView
+        android:id="@+id/tvAmountLast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="right|center_vertical"
+        android:text="XXX"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvXLast"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDelLast" />
+
+    <TextView
+        android:id="@+id/tvXBest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:text="x"
+        android:textColor="@color/lightGrey"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAmountBest"
+        app:layout_constraintEnd_toStartOf="@+id/tvQtdBest"
+        app:layout_constraintStart_toEndOf="@+id/tvAmountBest"
+        app:layout_constraintTop_toTopOf="@+id/tvAmountBest" />
+
+    <TextView
+        android:id="@+id/tvXLast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="x"
+        android:textColor="@color/lightGrey"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAmountLast"
+        app:layout_constraintEnd_toStartOf="@+id/tvQtdLast"
+        app:layout_constraintStart_toEndOf="@+id/tvAmountLast"
+        app:layout_constraintTop_toTopOf="@+id/tvAmountLast" />
+
+    <TextView
+        android:id="@+id/tvQtdBest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:gravity="left|center_vertical"
+        android:text="XXX"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvXBest"
+        app:layout_constraintEnd_toStartOf="@+id/tvUnitBest"
+        app:layout_constraintStart_toEndOf="@+id/tvXBest"
+        app:layout_constraintTop_toTopOf="@+id/tvXBest" />
+
+    <TextView
+        android:id="@+id/tvQtdLast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:gravity="left|center_vertical"
+        android:text="XXX"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvXLast"
+        app:layout_constraintEnd_toStartOf="@+id/tvUnitLast"
+        app:layout_constraintStart_toEndOf="@+id/tvXLast"
+        app:layout_constraintTop_toTopOf="@+id/tvXLast" />
+
+    <TextView
+        android:id="@+id/tvUnitBest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="unit"
+        android:textColor="@color/lightGrey"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvXBest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvQtdBest"
+        app:layout_constraintTop_toTopOf="@+id/tvXBest" />
+
+    <TextView
+        android:id="@+id/tvUnitLast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:text="unit"
+        android:textColor="@color/lightGrey"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvQtdLast"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvQtdLast"
+        app:layout_constraintTop_toTopOf="@+id/tvQtdLast" />
+
+    <TextView
+        android:id="@+id/tvObsBest"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="Melhor"
+        android:textColor="@color/lightGrey"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDelBest"
+        app:layout_constraintEnd_toStartOf="@+id/btnDelBest"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnDelBest" />
+
+    <TextView
+        android:id="@+id/tvObsLast"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="Última"
+        android:textColor="@color/lightGrey"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDelLast"
+        app:layout_constraintEnd_toStartOf="@+id/btnDelBest"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnDelLast" />
+
+    <ImageButton
+        android:id="@+id/btnDelBest"
+        style="@style/button_default"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMarket"
+        app:srcCompat="@android:drawable/ic_menu_delete"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/btnDelLast"
+        style="@style/button_default"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPricePUBest"
+        app:srcCompat="@android:drawable/ic_menu_delete"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/tvPriceBest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="XXX"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvDateBest"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAmountBest" />
+
+    <TextView
+        android:id="@+id/tvPriceLast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="XXX"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvDateLast"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAmountLast" />
+
+    <TextView
+        android:id="@+id/tvPricePUBest"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="R$ 0,0000 / unit"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPriceBest"
+        tools:ignore="HardcodedText,TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvPricePULast"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="R$ 0,0000 / unit"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPriceLast"
+        tools:ignore="HardcodedText,TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvDateBest"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="00/00/0000"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPriceBest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvPriceBest"
+        app:layout_constraintTop_toTopOf="@+id/tvPriceBest"
+        tools:ignore="HardcodedText,TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvDateLast"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="00/00/0000"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPriceLast"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvPriceLast"
+        app:layout_constraintTop_toTopOf="@+id/tvPriceLast"
+        tools:ignore="HardcodedText,TextSizeCheck" />
+
+    <tgw.groceryprices.android.MarqueeTextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="marquee"
+        android:text="Name"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="42sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvMarket"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="Mercado"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        tools:ignore="HardcodedText,TextSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

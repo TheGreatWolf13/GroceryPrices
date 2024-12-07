@@ -16,7 +16,8 @@ public class MainActivity extends GenericActivity {
     public static final MarketList MARKET_LIST = new MarketList();
     public static final ProductList PRODUCT_LIST = new ProductList();
     public static final ShoppingList SHOPPING_LIST = new ShoppingList();
-    public static int selectedId;
+    public static int selectedMarketId;
+    public static int selectedProductId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
