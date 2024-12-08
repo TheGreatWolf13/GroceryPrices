@@ -184,12 +184,7 @@ public abstract class NameAndIdList<T extends NameAndIdList.Item> {
         T t = null;
         for (int i = 0; i < size; i++) {
             t = this.loadItem(stream);
-            this.listById.add(t);
-            int index = this.searchByName(0, this.listByName.size() - 1, t.name());
-            if (index == -1) {
-                index = this.listByName.size();
-            }
-            this.listByName.add(index, t);
+            this.add(t);
         }
         if (t != null) {
             this.id = t.id();
