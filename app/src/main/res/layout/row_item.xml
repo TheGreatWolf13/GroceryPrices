@@ -7,7 +7,7 @@
     android:layout_height="60dp"
     tools:context=".ActivityMarkets">
 
-    <TextView
+    <tgw.groceryprices.android.MarqueeTextView
         android:id="@+id/tvItemName"
         android:layout_width="0dp"
         android:layout_height="48dp"
