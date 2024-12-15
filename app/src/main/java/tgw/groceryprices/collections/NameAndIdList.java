@@ -197,8 +197,8 @@ public abstract class NameAndIdList<T extends NameAndIdList.Item> {
         if (this.listById.isEmpty()) {
             return;
         }
-        T t = this.listById.remove(this.searchById(0, this.listById.size(), id));
-        this.listByName.remove(this.searchByName(0, this.listByName.size(), t.name()));
+        T t = this.listById.remove(this.searchById(0, this.listById.size() - 1, id));
+        this.listByName.remove(this.searchByName(0, this.listByName.size() - 1, t.name()));
         this.resetDisplay();
         if (this.listByName.isEmpty()) {
             this.id = 0;
@@ -262,9 +262,9 @@ public abstract class NameAndIdList<T extends NameAndIdList.Item> {
             return middle;
         }
         if (middleId < id) {
-            return this.searchById(from, middle - 1, id);
+            return this.searchById(middle + 1, end, id);
         }
-        return this.searchById(middle + 1, end, id);
+        return this.searchById(from, middle - 1, id);
     }
 
     private int searchByName(int from, int end, String value) {
@@ -286,10 +286,10 @@ public abstract class NameAndIdList<T extends NameAndIdList.Item> {
         }
         int compare = compare(s, value, Collator.IDENTICAL);
         if (compare < 0) {
-            return this.searchByName(from, middle - 1, value);
+            return this.searchByName(middle + 1, end, value);
         }
         if (compare > 0) {
-            return this.searchByName(middle + 1, end, value);
+            return this.searchByName(from, middle - 1, value);
         }
         throw new IllegalStateException("Duplicate string?");
     }
